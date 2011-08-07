@@ -1,0 +1,25 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1038\cocoasubrtf360
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww9000\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+
+\f0\fs24 \cf0 TODO:\
+\
+* Change how the note structure works somewhat\'85 Make it more relying on the under lying 1/2 step count.\
+\
+* Change the modifier to be part of the note name, so A and A# are different note names, scape the modifier concept\'85\
+\
+* Think of it almost like a numbering system. where 1/2 steps are the 1s, and octaves are the 10s\
+\
+-3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8 : 0\
+-3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8 : 1, etc\
+\
+Then all the note needs to have is a starting value and an octave. midi index can be calculated. Note name can be calculated.\
+\
+Then to do the addition you just take the number of 1/2 steps and do:\
+\
+octave = octave + (halfSteps / 12);\
+base number = base number + (halfSteps % 12); // actually this logic need to be refined, won't work with rollover correctly\'85 G# + 1 != A\
+\
+and let everything else be determined by those two things.}
