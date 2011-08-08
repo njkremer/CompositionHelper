@@ -72,6 +72,11 @@ public class Note {
 		_octave = octave;
 	}
 	
+	public Note(Note note) {
+		_note = note._note;
+		_octave = note._octave;
+	}
+	
 	public Note(String noteString) {
 		_parseNoteString(noteString);
 	}
@@ -79,7 +84,7 @@ public class Note {
 	public Note add(int halfSteps, boolean clone) {
 		Note note = this;
 		if(clone) {
-			note = new Note(this._note, this._octave);
+			note = new Note(this);
 		}
 		note._octave += halfSteps / 12;
 		int startingValue = note._note.getStartingIndex() + halfSteps % 12;
@@ -101,6 +106,10 @@ public class Note {
 	
 	public String toString() {
 		return _note.getName() + _octave;
+	}
+	
+	public boolean equals(Object otherNote) {
+		return _octave == ((Note) otherNote)._octave &&  _note == ((Note) otherNote)._note;
 	}
 	
 	private Notes _addNote(int startingValue, Note note) {

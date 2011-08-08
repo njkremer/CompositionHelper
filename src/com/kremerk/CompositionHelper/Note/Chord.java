@@ -1,5 +1,6 @@
 package com.kremerk.CompositionHelper.Note;
 
+import java.util.Collection;
 import java.util.LinkedHashMap;
 
 public class Chord {
@@ -22,8 +23,61 @@ public class Chord {
 		_adjustForQuality();
 	}
 	
+	public Chord(Chord chord) {
+		this(new Note(chord.getRoot()), chord.getQuality());
+	}
+	
+	public Chord getNextFifth() {
+		// copy off the chord
+		Chord chord = new Chord(this);
+		for(Note note : chord.getNotes()) {
+			note.add(7, false);
+		}
+		return chord;
+	}
+	
+	public Chord getPreviousFifth() {
+		// copy off the chord
+		Chord chord = new Chord(this);
+		for(Note note : chord.getNotes()) {
+			note.add(-7, false);
+		}
+		return chord;
+	}
+	
+	/**
+	 * 
+	 * @param n
+	 * @param direction A positive number indicates forward, negative is backwards.
+	 * @return
+	 */
+	public Chord getNthFifth(int n, int direction) {
+		Chord chord = new Chord(this);
+		for(int i = 0; i < n; i++) {
+			if(direction > 1) {
+				chord = chord.getNextFifth();
+			}
+			else if(direction < 0){
+				chord = chord.getPreviousFifth();
+			}
+		}
+		return chord;
+	}
+	
+	public Note getRoot() {
+		return _root;
+	}
+	
+	public Quality getQuality() {
+		return _quality;
+	}
+	
 	public Note getNote(int notePlace) {
 		return _notes.get(notePlace);
+	}
+	
+	public Collection<Note> getNotes() {
+		return _notes.values();
 	}
 	
 	public String toString() {
@@ -32,6 +86,13 @@ public class Chord {
 			s.append(_notes.get(key) + " ");
 		}
 		return s.toString();
+	}
+	
+	public boolean equals(Object other) {
+		Chord chord = (Chord) other;
+		return _root.equals(chord._root) &&
+			   _quality.equals(chord._quality) &&
+			   _notes.equals(chord._notes);
 	}
 
 	private void _adjustForQuality() {
@@ -56,8 +117,8 @@ public class Chord {
 
 	}
 	
-	private LinkedHashMap<Integer, Note> _notes;
-	private Quality _quality;
 	private Note _root;
+	private Quality _quality;
+	private LinkedHashMap<Integer, Note> _notes = new LinkedHashMap<Integer, Note>();
 	
 }

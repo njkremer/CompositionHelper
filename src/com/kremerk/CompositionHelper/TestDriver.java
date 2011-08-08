@@ -1,11 +1,11 @@
 package com.kremerk.CompositionHelper;
 
-import javax.sound.midi.MidiChannel;
-import javax.sound.midi.MidiSystem;
 import javax.sound.midi.MidiUnavailableException;
-import javax.sound.midi.Synthesizer;
 
+import com.kremerk.CompositionHelper.Note.Chord;
+import com.kremerk.CompositionHelper.Note.Chord.Quality;
 import com.kremerk.CompositionHelper.Note.Note;
+import com.kremerk.CompositionHelper.Player.NotePlayer;
 
 public class TestDriver {
 
@@ -15,16 +15,11 @@ public class TestDriver {
 	 * @throws InterruptedException 
 	 */
 	public static void main(String[] args) throws MidiUnavailableException, InterruptedException {
-		Synthesizer synth = MidiSystem.getSynthesizer();
-		synth.open();
-		
-		MidiChannel channel = synth.getChannels()[0];
-		channel.noteOn(new Note("C6").getIntValue(), 50);
-		channel.noteOn(new Note("E6").getIntValue(), 50);
-		channel.noteOn(new Note("G6").getIntValue(), 50);
-		Thread.sleep(2000);
-		channel.allNotesOff();
-		Thread.sleep(200);
+		NotePlayer.play(new Note("C6"));
+		NotePlayer.play(new Chord(new Note("C6")));
+		NotePlayer.play(new Chord(new Note("G6")));
+		NotePlayer.play(new Chord(new Note("A6"), Quality.MINOR));
+		NotePlayer.play(new Chord(new Note("F6")));
 	}
 
 }
