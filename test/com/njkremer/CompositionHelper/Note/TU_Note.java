@@ -1,10 +1,11 @@
-package com.kremerk.CompositionHelper.Note;
+package com.njkremer.CompositionHelper.Note;
 
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import com.kremerk.CompositionHelper.Note.Note.Notes;
+import com.njkremer.CompositionHelper.Note.Note;
+import com.njkremer.CompositionHelper.Note.Note.Notes;
 
 public class TU_Note {
 	

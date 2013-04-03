@@ -1,11 +1,11 @@
-package com.kremerk.CompositionHelper;
+package com.njkremer.CompositionHelper;
 
 import javax.sound.midi.MidiUnavailableException;
 
-import com.kremerk.CompositionHelper.Note.Chord;
-import com.kremerk.CompositionHelper.Note.Chord.Quality;
-import com.kremerk.CompositionHelper.Note.Note;
-import com.kremerk.CompositionHelper.Player.NotePlayer;
+import com.njkremer.CompositionHelper.Note.Chord;
+import com.njkremer.CompositionHelper.Note.Note;
+import com.njkremer.CompositionHelper.Note.Chord.Quality;
+import com.njkremer.CompositionHelper.Player.NotePlayer;
 
 public class TestDriver {
 

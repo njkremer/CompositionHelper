@@ -1,12 +1,12 @@
-package com.kremerk.CompositionHelper.Player;
+package com.njkremer.CompositionHelper.Player;
 
 import javax.sound.midi.MidiChannel;
 import javax.sound.midi.MidiSystem;
 import javax.sound.midi.MidiUnavailableException;
 import javax.sound.midi.Synthesizer;
 
-import com.kremerk.CompositionHelper.Note.Chord;
-import com.kremerk.CompositionHelper.Note.Note;
+import com.njkremer.CompositionHelper.Note.Chord;
+import com.njkremer.CompositionHelper.Note.Note;
 
 public class NotePlayer {
 	

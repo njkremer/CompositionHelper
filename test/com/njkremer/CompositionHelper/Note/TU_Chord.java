@@ -1,11 +1,13 @@
-package com.kremerk.CompositionHelper.Note;
+package com.njkremer.CompositionHelper.Note;
 
 import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.*;
 
 import org.junit.Test;
 
-import com.kremerk.CompositionHelper.Note.Chord.Quality;
+import com.njkremer.CompositionHelper.Note.Chord;
+import com.njkremer.CompositionHelper.Note.Note;
+import com.njkremer.CompositionHelper.Note.Chord.Quality;
 
 public class TU_Chord {
 	

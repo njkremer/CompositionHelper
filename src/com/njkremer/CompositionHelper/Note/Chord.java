@@ -1,4 +1,4 @@
-package com.kremerk.CompositionHelper.Note;
+package com.njkremer.CompositionHelper.Note;
 
 import java.util.Collection;
 import java.util.LinkedHashMap;
